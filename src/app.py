@@ -32,8 +32,8 @@ def textStatistics(file_name):
 
 def main():
     try:       
-        account_id='rthakur@sapient.com' 
-        private_key = open("einstein_platform.pem","r").read()
+        account_id='abc@xyz.com' # Your Einstein Account ID
+        private_key = open("einstein_platform.pem","r").read() #Your Einstein Private Key file
                 
         # Set expiry time
         expiry = int(time.time()) + (15*60)
@@ -54,7 +54,7 @@ def main():
             
             
         #data_file='Rakesh_Sample.csv' #SFCC_Q1_2019_Recognition_Data.csv'
-        data_file='SFCC_Q1_2019_Recognition_Data1.csv'
+        data_file='TextFileForSentimentAnalysis.csv'
         data_file_with_sentiment="Sentiment_of_"+data_file
         cleandata(data_file)
         df = pandas.read_csv(data_file)

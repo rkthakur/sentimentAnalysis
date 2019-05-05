@@ -7,20 +7,18 @@ _PREDICTION_URL = EINSTEIN_LANGUAGE_URL +"/v2/language/sentiment"
 
 
 def predict(token, text):
-    """Run a prediction against a model using image url.
+    """Run a sentiment analysis against a standard "CommunitySentiment" model.
 
     Args:
         token: oauth token
-        model_id: model id
-        image_url: image url
+        text: Text for Sentiment Analysis
 
     Returns:
-        A json string containing classes and probabilities.
+        A json string containing classes and sentiment probabilities.
     """
     
     payload = {"modelId" : "CommunitySentiment","document" : text}
 
-    #payload = {"modelId":"CommunitySentiment","document":"The presentation was great and I learned a lot"}
     headers = {
             'Authorization':'Bearer ' + token, 
             'Cache-Control': 'no-cache', 
@@ -33,7 +31,7 @@ def _prediction_request(url, payload, headers):
     """Make a prediction request.
     Args:
         url: endpoint url
-        data: multipart payload
+        payload: JSON payload
         headers: request headers
 
     Returns:
